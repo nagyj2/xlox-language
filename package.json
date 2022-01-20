@@ -1,10 +1,10 @@
 {
-    "name": "lox-language",
-    "displayName": "Lox Language",
-    "description": "Syntax highlighting for everyone's favorite interpreted learning-language",
+    "name": "xlox-language",
+    "displayName": "xLox Language",
+    "description": "Syntax highlighting for my interpretation of everyone's favorite interpreted learning-language",
     "version": "0.0.4",
-    "publisher": "dberezin",
-    "author": "dberezin",
+    "publisher": "nagyj2",
+    "author": "dberezin, nagyj2",
     "icon": "images/CILogo.png",
     "engines": {
         "vscode": "^1.24.0"
@@ -15,39 +15,39 @@
     "contributes": {
         "languages": [
             {
-                "id": "lox",
+                "id": "xlox",
                 "aliases": [
-                    "lox",
-                    "lox"
+                    "xlox",
+                    "xlox"
                 ],
                 "extensions": [
-                    ".lox"
+                    ".xlox"
                 ],
                 "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [
             {
-                "language": "lox",
-                "scopeName": "source.lox",
-                "path": "./syntaxes/lox.tmLanguage.json"
+                "language": "xlox",
+                "scopeName": "source.xlox",
+                "path": "./syntaxes/xlox.tmLanguage.json"
             }
         ]
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/danman113/lox-language.git"
+        "url": "https://github.com/nagyj2/xlox-language.git"
     },
     "keywords": [
-        "lox",
-        "lox-language",
+        "xlox",
+        "xlox-language",
         "vscode",
         "vscode-extension",
         "vscode-language"
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/danman113/lox-language/issues"
+        "url": "https://github.com/nagyj2/xlox-language/issues"
     },
-    "homepage": "https://github.com/danman113/lox-language#readme"
+    "homepage": "https://github.com/nagyj2/xlox-language#readme"
 }

@@ -1,0 +1,248 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "xlox",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#blockComments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#statements"
+		},
+		{
+			"include": "#callables"
+		},
+		{
+			"include": "#ident"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#digits"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.xlox",
+					"match": "\\b(if|else|while|for|return|do|break|and|or)\\b"
+				},
+				{
+					"name": "constant.language.null.xlox",
+					"match": "\\b(nil)\\b"
+				},
+				{
+					"name": "constant.language.boolean.xlox",
+					"match": "\\b(true|false)\\b"
+				},
+				{
+					"name": "support.function.builtin.xlox",
+					"match": "\\b(print)\\b"
+				},
+				{
+					"name": "variable.language.this.xlox",
+					"match": "\\b(this)\\b"
+				},
+				{
+					"name": "variable.language.super.xlox",
+					"match": "\\b(super)\\b"
+				},
+				{
+					"name": "variable.language.init.xlox",
+					"match": "\\b(init)\\b"
+				}
+			]
+		},
+		"statements": {
+			"patterns": [
+				{ "match": "\\b(let)\\s+(fun)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*\\(([A-Za-z0-9,\\s]*)\\)",
+					"comment": "Constant Function Declaration",
+					"captures": {
+						"1": {
+							"name": "storage.modifier.xlox"
+						},
+						"2": {
+							"name":"storage.type.function.xlox"
+						},
+						"3": {
+							"name":"entity.name.function.xlox"
+						},
+						"4": {
+							"patterns": [
+								{
+									"match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+									"name": "variable.parameter.xlox"
+								}
+							]
+						}
+					}
+				},
+				{ "match": "\\b(fun)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*\\(([A-Za-z0-9,\\s]*)\\)",
+					"comment": "Function Declaration",
+					"captures": {
+						"1": {
+							"name":"storage.type.function.xlox"
+						},
+						"2": {
+							"name":"entity.name.function.xlox"
+						},
+						"3": {
+							"patterns": [
+								{
+									"match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+									"name": "variable.parameter.xlox"
+								}
+							]
+						}
+					}
+				},
+				{ "match": "\\b(fun)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+					"comment": "Getter Function Declaration",
+					"captures": {
+						"1": {
+							"name":"storage.type.function.xlox"
+						},
+						"2": {
+							"name":"entity.name.function.xlox"
+						}
+					}
+				},
+				{ "match": "\\b(static)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*\\(([A-Za-z0-9,\\s]*)\\)",
+					"comment": "Static Class Method Declaration",
+					"captures": {
+						"1": {
+							"name":"storage.type.function.xlox"
+						},
+						"2": {
+							"name":"entity.name.function.xlox"
+						},
+						"3": {
+							"patterns": [
+								{
+									"match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+									"name": "variable.parameter.xlox"
+								}
+							]
+						}
+					}
+				},
+				{ "match": "\\b(let)\\s+(class)\\s+([A-Za-z_][A-Za-z0-9_]*)(?:\\s*(<|<-)\\s*([A-Za-z_][A-Za-z0-9_]*))?\\b",
+					"comment": "Constant Class Declaration",
+					"captures": {
+						"1": {
+							"name": "storage.modifier.xlox"
+						},
+						"2": {
+							"name": "storage.type.class.xlox"
+						},
+						"3": {
+							"name": "entity.name.type.class.xlox"
+						},
+						"4": {
+							"name": "storage.modifier.xlox"
+						},
+						"5": {
+							"name": "entity.name.type.class.xlox"
+						}
+					}
+				},
+				{ "match": "\\b(class)\\s+([A-Za-z_][A-Za-z0-9_]*)(?:\\s*(<|<-)\\s*([A-Za-z_][A-Za-z0-9_]*))?\\b",
+					"comment": "Class Declaration",
+					"captures": {
+						"1": {
+							"name": "storage.type.class.xlox"
+						},
+						"2": {
+							"name": "entity.name.type.class.xlox"
+						},
+						"3": {
+							"name": "storage.modifier.xlox"
+						},
+						"4": {
+							"name": "entity.name.type.class.xlox"
+						}
+					}
+
+				},
+				{ "match": "\\b(var|let)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"comment": "Variable/ Constant Declaration",
+					"captures": {
+						"1": {
+							"name": "storage.type.xlox"
+						},
+						"2": {
+							"name": "support.variable.xlox"
+						}
+					}
+				}
+			]
+		},
+		"callables": {
+			"patterns": [
+				{
+					"match": "\\b(static)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+					"captures": {
+						"1": {
+							"name": "storage.type.function.xlox"
+						},
+						"2": {
+							"name": "entity.name.function.xlox"
+						}
+					}
+				},
+				{
+					"match": "([A-Za-z_][A-Za-z0-9_]*)\\(",
+					"name": "support.function.xlox"
+				}
+			]
+		},
+		"strings": {
+			"begin": "\"",
+			"end": "\"",
+			"name": "string.quoted.double.xlox",
+			"patterns": []
+		},
+		"digits": {
+			"patterns": [
+				{
+					"match": "\\b[0-9]+(?:.[0-9]+)?\\b",
+					"name": "constant.numeric.xlox"
+				}
+			]
+		},
+		"ident": {
+			"patterns": [
+				{
+					"match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+					"name": "variable.other.readwrite.xlox"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.xlox",
+					"match": "\\/\\/.*"
+				}
+			]
+		},
+		"blockComments": {
+			"name": "comment.block.xlox",
+			"begin": "/\\*",
+			"end": "\\*/",
+			"patterns": [
+				{
+				"include": "#blockComments"
+				}
+			]
+		}
+	},
+	"scopeName": "source.xlox"
+}
