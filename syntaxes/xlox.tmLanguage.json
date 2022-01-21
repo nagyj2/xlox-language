@@ -32,7 +32,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.xlox",
-					"match": "\\b(if|else|while|for|return|do|break|and|or)\\b"
+					"match": "\\b(if|else|while|for|return|do|break|and|or|try|catch|panic)\\b"
 				},
 				{
 					"name": "constant.language.null.xlox",
