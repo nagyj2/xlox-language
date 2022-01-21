@@ -44,7 +44,7 @@
 				},
 				{
 					"name": "support.function.builtin.xlox",
-					"match": "\\b(print)\\b"
+					"match": "\\b(print|str|assert|assertFalse|assertEqual|assertNotEqual)\\b"
 				},
 				{
 					"name": "variable.language.this.xlox",
