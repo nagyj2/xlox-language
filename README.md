@@ -15,3 +15,7 @@ If you want an implementation of the Lox language, the source for Bob Nystrom's 
 ## Contribute
 
 For any bugs and feature requests please [open an issue](https://github.com/danman113/lox-language/issues). For code contributions please create a [pull request](https://github.com/danman113/lox-language/pulls). Enjoy!
+
+## Build Instructions
+
+To build, navigate to the root directory and run `vsce package`. This will create a `.vsix` file which can be imported to VSCode.
